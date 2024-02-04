@@ -5,7 +5,7 @@ namespace ePizzaHub.Repositories.Implementation
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        AppDbContext _db;
+        protected AppDbContext _db;
         public Repository(AppDbContext db)
         {
             _db = db;
@@ -17,7 +17,7 @@ namespace ePizzaHub.Repositories.Implementation
 
         public void Delete(int id)
         {
-            TEntity entity = _db.Set<TEntity>().Find(id);
+            TEntity? entity = _db.Set<TEntity>().Find(id);
             if (entity != null)
             {
                 _db.Set<TEntity>().Remove(entity);

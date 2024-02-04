@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ePizzaHub.Core", "ePizzaHub.Core\ePizzaHub.Core.csproj", "{2B75378A-92C0-44E5-8D60-BEC00C58544A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ePizzaHub.Core", "ePizzaHub.Core\ePizzaHub.Core.csproj", "{2B75378A-92C0-44E5-8D60-BEC00C58544A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ePizzaHub.Models", "ePizzaHub.Model\ePizzaHub.Models.csproj", "{7DBA4E1F-0810-4D26-8F5B-976BCE69CA19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ePizzaHub.Models", "ePizzaHub.Model\ePizzaHub.Models.csproj", "{7DBA4E1F-0810-4D26-8F5B-976BCE69CA19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ePizzaHub.Repositories", "ePizzaHub.Repositories\ePizzaHub.Repositories.csproj", "{9BCBD8A2-7575-4FB3-92B7-F496D974BCD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ePizzaHub.Repositories", "ePizzaHub.Repositories\ePizzaHub.Repositories.csproj", "{9BCBD8A2-7575-4FB3-92B7-F496D974BCD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ePizzaHub.Services", "ePizzaHub.Services\ePizzaHub.Services.csproj", "{58C2A200-15C0-4FB9-A6C6-AE8AA0D076F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ePizzaHub.Services", "ePizzaHub.Services\ePizzaHub.Services.csproj", "{58C2A200-15C0-4FB9-A6C6-AE8AA0D076F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ePizzaHub.UI", "ePizzaHub.UI\ePizzaHub.UI.csproj", "{B7E377E1-5C19-45D4-BB74-AF353029BE7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ePizzaHub.UI", "ePizzaHub.UI\ePizzaHub.UI.csproj", "{B7E377E1-5C19-45D4-BB74-AF353029BE7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

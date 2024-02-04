@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ePizzaHub.Core\ePizzaHub.Core.csproj" />
+    <ProjectReference Include="..\ePizzaHub.Model\ePizzaHub.Models.csproj" />
   </ItemGroup>
 
 </Project>
