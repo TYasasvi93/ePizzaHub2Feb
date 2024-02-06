@@ -7,6 +7,6 @@ namespace ePizzaHub.UI.Areas.User.Controllers
     [CustomAuthorize(Roles = "User")]
     public class BaseController : Controller
     {
-      
+
     }
 }

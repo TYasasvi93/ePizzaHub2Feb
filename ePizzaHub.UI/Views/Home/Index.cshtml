@@ -1,8 +1,53 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    Layout = "_FullSizeLayout";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center" style="background:#1a5ca3">
+    <div class="container">
+        <div class="row text-white">
+            <div class="col-sm-8">
+                <div class="pt-5 pb-5">
+                    <h1> ePizza Hub's Online Ordering WebSite!</h1>
+                    <p class="pb-4">
+                        Yummy pizza delivered fast at your door step!
+                    </p>
+                    <p>
+                        <a href="#heading" class="btn btn-success"> Order Online Now</a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4  pt-4 pb-2">
+                <img src="~/images/pizza-header.png" class="img-fluid" />
+            </div>
+        </div>        
+    </div>
+</div>
+
+<div class="mt-4 container">
+    <h2> Pizza, Dessert and Beverages </h2>
+    <div class="row">
+        @foreach(var item in Model)
+        {
+            <div class="card col-sm-4 mb-3">
+                <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text">@item.Description</p>
+                    <button class="btn btn-primary" onclick="AddToCart('@item.Id','@item.Name','@item.UnitPrice',1)">Add To Cart</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div id="toastCart" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+                <strong class="mr-auto">Bootstrap</strong>
+         <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    </button>
+    </div>
+    <div class="toast-body">
+
+    </div>
 </div>

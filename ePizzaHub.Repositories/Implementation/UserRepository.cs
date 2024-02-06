@@ -33,7 +33,7 @@ namespace ePizzaHub.Repositories.Implementation
         {
             try
             {
-                var user = _db.Users.Include(u=>u.Roles).Where(u => u.Email == email).FirstOrDefault();
+                var user = _db.Users.Include(u => u.Roles).Where(u => u.Email == email).FirstOrDefault();
                 if (user != null)
                 {
                     bool isVerified = BCrypt.Net.BCrypt.Verify(password, user.Password);

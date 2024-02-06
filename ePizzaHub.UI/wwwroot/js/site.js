@@ -1,4 +1,83 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function AddToCart(itemID,name, unitPrice, quantity) {
+    $.ajax({
+        type: "GET",
+        contentType: "application/json; charset=uft-8",
+        url: "/cart/addtocart/" + itemID + "/" + unitPrice + "/" + quantity,
+        success: function (d) {
+            var data = d.length > 0 ? JSON.parse(d) : null;
+            if (data != null && data.CartItems.length > 0) {
+                //console.log("Added");
+                $ ("#cartCounter").text(data.CartItems.length);
+                var message = '<strong>' + name + '<strong> Added to <a href=/cart">Cart</a> Successfully!'
+                $('#toastCart>.toast-body').html(message)
+                $('#toastCart').toast('show');
+                setTimeout(function () {
+                    $('#toastCart').toast('hide');
+                }, 4000);
+            }
+        }
 
-// Write your JavaScript code.
+    });
+}
+
+
+function deleteItem(id) {
+    if (id > 0) {
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: '/Cart/DeleteItem/' + id,
+            success: function (data) {
+                if (data > 0) {
+                    location.reload();
+                }
+            },
+            error: function (result) {
+            },
+        });
+    }
+}
+function updateQuantity(id, total, quantity) {
+    if (id > 0 && quantity > 0) {
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: '/Cart/UpdateQuantity/' + id + "/" + quantity,
+            success: function (data) {
+                if (data > 0) {
+                    location.reload();
+                }
+            },
+            error: function (result) {
+            },
+        });
+    }
+    else if (id > 0 && quantity < 0 && total > 1) {
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: '/Cart/UpdateQuantity/' + id + "/" + quantity,
+            success: function (data) {
+                if (data > 0) {
+                    location.reload();
+                }
+            },
+            error: function (result) {
+            },
+        });
+    }
+}
+
+$(document).ready(function () {
+    $.ajax({
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        url: '/Cart/GetCartCount',
+        dataType: "json",
+        success: function (data) {
+            $("#cartCounter").text(data);
+        },
+        error: function (result) {
+        },
+    });
+});

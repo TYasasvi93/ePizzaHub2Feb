@@ -1,11 +1,11 @@
 ﻿using ePizzaHub.Models;
-using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Security.Claims;
 
-namespace ePizzaHub.UI.Helpers
+namespace ePizzaHub.UI.Controllers
 {
-    public abstract class BaseViewPage<TModel> : RazorPage<TModel>
+    public class BaseController : Controller
     {
         public UserModel CurrentUser
         {

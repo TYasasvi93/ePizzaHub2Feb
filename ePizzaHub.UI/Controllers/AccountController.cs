@@ -1,8 +1,8 @@
 ﻿using ePizzaHub.Models;
 using ePizzaHub.Services.Interfaces;
 using ePizzaHub.UI.Models;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Text.Json;
@@ -14,24 +14,29 @@ namespace ePizzaHub.UI.Controllers
         IUserService _userService;
         public AccountController(IUserService userService)
         {
-            _userService = userService; 
+            _userService = userService;
         }
         public IActionResult Login()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Login(LoginViewModel loginModel)
+        public IActionResult Login(LoginViewModel loginModel, string returnUrl)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                UserModel user= _userService.ValidateUser(loginModel.Email, loginModel.Password);
+                UserModel user = _userService.ValidateUser(loginModel.Email, loginModel.Password);
                 if (user != null)
                 {
                     GenerateAuthCookie(user);
-                    if(user.Roles.Contains("admin"))
+
+                    if (!string.IsNullOrEmpty(returnUrl))
                     {
-                        return RedirectToAction("Index", "Home", new {area="Admin"});
+                        return Redirect(returnUrl);
+                    }
+                    if (user.Roles.Contains("admin"))
+                    {
+                        return RedirectToAction("Index", "Home", new { area = "Admin" });
                     }
                     else if (user.Roles.Contains("User"))
                     {
@@ -63,7 +68,7 @@ namespace ePizzaHub.UI.Controllers
 
         public IActionResult UnAuthorize()
         {
-            return View();  
+            return View();
         }
     }
 }
